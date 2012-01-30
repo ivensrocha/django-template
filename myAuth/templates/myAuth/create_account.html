@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	<form action="" method="POST">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<input type="submit" value="Cadastrar-me"></input>
+	</form>
+{% endblock body %}

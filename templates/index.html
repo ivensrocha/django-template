@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Django template{% endblock title %}
+
+{% block body %}
+	Esta é a página inicial.
+	<p>
+	    <strong>Você {% if not user.is_authenticated %}não {% endif %}está logado.</strong>
+	</p>
+{% endblock body %}

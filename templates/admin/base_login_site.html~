@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load adminmedia %}
+{% block branding %}
+<h1 id="site-name"><img src="{% admin_media_prefix %}img/admin/logolit.png" /></h1>
+{% endblock %}
+
+
+{% block nav-global %}{% endblock %}

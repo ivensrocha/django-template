@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+{% load adminmedia %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block branding %}
+	<h1 id="site-name"></h1>
+{% endblock %}
+
+{% block footer %}
+	<img src="{% admin_media_prefix %}img/admin/logolit.png"/>
+{% endblock footer %}
+
+{% block nav-global %}{% endblock %}

@@ -1,0 +1,8 @@
+Olá Sr. {{ account.first_name }}, <br/><br/>
+
+Pedimos que acesse o endereço abaixo e confirme sua conta.<br/><br/>
+
+<a href="{% url myAuth:confirm_account account.username %}">confirme sua conta</a>
+
+Obrigado,
+Equipe do Site

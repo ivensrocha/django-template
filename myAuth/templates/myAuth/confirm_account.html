@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if result == 1 %}
+	Obrigado por se confirmar sua conta. Clique <a href="{% url index %}">aqui</a> para voltar para a página inicial. =)
+{% else %} 
+	{% if result == 2 %}
+		Este código não existe o_O
+	{% else %} 
+		{% if result == 3 %}
+			Chegou tarde. O código expirou. <a href="{% url myAuth:send_confirmation_code code %}">Solicite um novo envio</a>.
+		{% endif %}
+	{% endif %}
+{% endif %}
+	
+{% endblock body %}
