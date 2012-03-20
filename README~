@@ -1,7 +1,0 @@
-Template for a Django project
-
-This sample template was built according to what I use more often in any kind of Django project.
-
-It has my custom (unfinished) auth app, also includes a configured django_toolbar (so I don't have to download and prepare it everytime) and the folders are organized the way I'm used to.
-
-Feel free to use it.

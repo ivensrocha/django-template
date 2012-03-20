@@ -1,12 +1,10 @@
 # coding: utf-8
 
 import os
-PROJECT_DIR = os.path.dirname(__file__)
-
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+PROJECT_DIR = os.path.dirname(__file__) + "/../"
 
 ADMINS = (
+    ('Ivens Rocha', 'ivens@ivens.pro'),
 )
 
 MANAGERS = ADMINS
@@ -60,14 +58,7 @@ MEDIA_URL = '/media/'
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'public')
 
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static'
-
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = STATIC_URL + '/admin/'
+STATIC_URL = '/static'    
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -93,31 +84,10 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',   
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-)
-
 ROOT_URLCONF = 'int.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
-)
-
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.admin',
-    'int.core',
-    'int.myAuth',
-    'int.debug_toolbar',    
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth',
@@ -127,13 +97,8 @@ TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth',
                                 'django.core.context_processors.static',
                                 'django.core.context_processors.csrf',
                                 'django.contrib.messages.context_processors.messages',
-                               )
-
-LOGIN_URL = '/auth/login/'
-
-LOGOUT_URL = '/auth/logout/'
-
-LOGIN_REDIRECT_URL = '/'
+                                'int.context.custom_context',
+                               )   
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -143,14 +108,8 @@ AUTH_PROFILE_MODULE = 'myAuth.UserProfile'
 
 APPEND_SLASH = False
 
-AUTHENTICATION_BACKENDS = ('myAuth.models.UserCustomModelBackend',
+AUTHENTICATION_BACKENDS = ('int.myAuth.models.UserCustomModelBackend',
                            'django.contrib.auth.backends.ModelBackend',)
-
-# debug toolbar
-INTERNAL_IPS = ('127.0.0.1',)
-DEBUG_TOOLBAR_CONFIG = {
-                        'INTERCEPT_REDIRECTS': False, 
-                        }
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
