@@ -7,11 +7,11 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns['',
     url(r'^$', direct_to_template, {'template': 'index.html'}, name='index'),
     url(r'^admin/', include(admin.site.urls)),
     (r'^req/', include('int.core.urls', namespace='core')),
     (r'^auth/', include('int.myAuth.urls', namespace='myAuth')),
-)
+  ]                     
 
 urlpatterns += staticfiles_urlpatterns()
